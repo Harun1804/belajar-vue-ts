@@ -60,7 +60,7 @@ const handleRegister = (e: Event) => {
 <template>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card border-0 rounded-4 shadow-sm">
+            <div class="card border-1 rounded-4 shadow-sm">
                 <div class="card-body">
                     <h4 class="fw-bold text-center">REGISTER</h4>
                     <hr />

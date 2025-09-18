@@ -39,8 +39,6 @@ const handleLogin = (e: Event) => {
         { email: email.value, password: password.value },
         {
             onSuccess: (data: any) => {
-                console.log(data);
-
                 //set cookie token
                 Cookies.set('token', data.data.token)
 
@@ -59,7 +57,6 @@ const handleLogin = (e: Event) => {
                 router.push('/admin/dashboard')
             },
             onError: (error: any) => {
-
                 //assign errors, error.response.data.errors)
                 Object.assign(errors, error.response.data.errors)
 
@@ -72,7 +69,7 @@ const handleLogin = (e: Event) => {
 <template>
     <div class="row justify-content-center mt-5">
         <div class="col-md-4">
-            <div class="card border-0 rounded-4 shadow-sm">
+            <div class="card border-1 rounded-4 shadow-sm">
                 <div class="card-body">
                     <h4 class="fw-bold text-center">LOGIN</h4>
                     <hr />
@@ -84,15 +81,15 @@ const handleLogin = (e: Event) => {
                             <label class="mb-1 fw-bold">Email</label>
                             <input v-model="email" type="email" class="form-control" placeholder="email" />
                             <div v-if="errors.email" class="alert alert-danger mt-2 rounded-4">
-                                {{ errors.email }}
+                                {{ errors.email[0] }}
                             </div>
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-1 fw-bold">Password</label>
                             <input v-model="password" type="password" class="form-control" placeholder="Password" />
-                            <div v-if="errors.Password" class="alert alert-danger mt-2 rounded-4">
-                                {{ errors.Password }}
+                            <div v-if="errors.password" class="alert alert-danger mt-2 rounded-4">
+                                {{ errors.password[0] }}
                             </div>
                         </div>
 
